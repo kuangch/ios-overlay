@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="iOS-Overlay/css/iosOverlay.css">
+    <style>
+        body {
+            background: silver;
+        }
+
+        .test {
+            float: left;
+            width: 42%;
+            height: 300px;
+            border: solid 1px red;
+        }
+
+        .test2 {
+            float: left;
+            width: 55%;
+            height: 380px;
+            border: solid 1px red;
+        }
+    </style>
+    <script src="iOS-Overlay/js/iosOverlay.js"></script>
+    <script src="iOS-Overlay/js/spin.min.js"></script>
+
+</head>
+<body id="test3">
+<div id="test" class="test">
+    <nobr></nobr>
+
+</div>
+<div id="test2" class="test2">
+    <nobr></nobr>
+
+</div>
+
+<script>
+
+    l = newLoading({
+        text: '加载数据',
+        timeout: 1000 * 5,
+        parentEl: 'test'
+    });
+
+    setTimeout(function () {
+        l.update({
+            icon: "iOS-Overlay/img/cross.png",
+            text: "网络异常"
+        });
+    }, 1500);
+
+    l2 = newLoading({
+        text: '加载',
+        timeout: 1000 * 2,
+        parentEl: 'test2'
+    });
+    setTimeout(function () {
+        l2.update({
+            icon: "iOS-Overlay/img/check.png",
+            text: "成功",
+            timeout: 1000 * 5
+        });
+    }, 1500);
+
+
+    setTimeout(function () {
+        newLoading({
+            text: '重新加载',
+            timeout: 1000 * 5,
+            parentEl: 'test2'
+        });
+    }, 1000 * 4);
+
+
+</script>
+</body>
+</html>
